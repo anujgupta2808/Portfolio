@@ -31,7 +31,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-bg-primary text-text-primary selection:bg-brand-neon selection:text-white font-sans antialiased overflow-x-hidden">
-      {/* Interactive WebGL Fluid Splash Cursor Effect */}
+      {/* Interactive WebGL Fluid Splash Cursor Effect (Pure Vibrant Red) */}
       <SplashCursor
         rainbow={false}
         size={1}
@@ -39,7 +39,7 @@ export const App: React.FC = () => {
         swirl={3}
         trail={1}
         clickSplash
-        colors={["#ef4444", "#000000"]}
+        colors={["#FF1744", "#EF4444", "#FF5252"]}
       />
 
       {/* Ambient background particles & grid */}
