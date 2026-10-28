@@ -32,68 +32,43 @@ export async function sendContactMessage(formData: ContactFormData): Promise<Api
     }).catch(() => {});
   }
 
-  // Primary: Direct email delivery via ShipMyForm endpoint
+  // Also silently post to public endpoint in background
   try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 9000);
-
     const postData = new FormData();
     postData.append('name', formData.name);
     postData.append('email', formData.email);
     postData.append('subject', formData.subject);
     postData.append('message', formData.message);
 
-    const response = await fetch(`https://shipmyform.com/to/${RECIPIENT_EMAIL}`, {
+    fetch(`https://shipmyform.com/to/${RECIPIENT_EMAIL}`, {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-      },
-      signal: controller.signal,
+      headers: { 'Accept': 'application/json' },
       body: postData,
-    });
+    }).catch(() => {});
+  } catch (_) {}
 
-    clearTimeout(timeoutId);
-
-    const json: any = await response.json().catch(() => ({}));
-
-    if (response.ok && json.ok) {
-      return {
-        success: true,
-        message: 'Thank you! Your message has been sent directly to Anuj Gupta.',
-      };
-    }
-
-    if (json.error === 'activation_pending') {
-      return {
-        success: true,
-        message: 'Message captured! A one-time activation was sent to anujgupta26610812@gmail.com.',
-        fallbackAvailable: true,
-      };
-    }
-  } catch (err: any) {
-    console.warn('[Contact Delivery] Direct endpoint timeout or network issue:', err);
-  }
-
-  // 3. Fallback: message saved locally and direct email/WhatsApp links ready
   return {
     success: true,
-    message: 'Message captured! You can also click below to confirm in Gmail or WhatsApp.',
-    fallbackAvailable: true,
+    message: 'Your message has been prepared for Anuj Gupta!',
   };
 }
 
 export function createMailtoUrl(formData: Partial<ContactFormData>): string {
-  const subject = encodeURIComponent(formData.subject || 'Portfolio Inquiry');
+  const subject = encodeURIComponent(
+    formData.subject ? `[Portfolio Contact] ${formData.subject}` : 'Portfolio Inquiry'
+  );
   const body = encodeURIComponent(
-    `Hi Anuj,\n\nName: ${formData.name || ''}\nEmail: ${formData.email || ''}\n\nMessage:\n${formData.message || ''}`
+    `Hi Anuj,\n\nName: ${formData.name || ''}\nEmail: ${formData.email || ''}\n\nMessage:\n${formData.message || ''}\n\n---\nSent from Portfolio Contact Form`
   );
   return `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
 }
 
 export function createGmailComposeUrl(formData: Partial<ContactFormData>): string {
-  const subject = encodeURIComponent(formData.subject || 'Portfolio Inquiry');
+  const subject = encodeURIComponent(
+    formData.subject ? `[Portfolio Contact] ${formData.subject}` : 'Portfolio Inquiry'
+  );
   const body = encodeURIComponent(
-    `Hi Anuj,\n\nName: ${formData.name || ''}\nEmail: ${formData.email || ''}\n\nMessage:\n${formData.message || ''}`
+    `Hi Anuj,\n\nName: ${formData.name || ''}\nEmail: ${formData.email || ''}\n\nMessage:\n${formData.message || ''}\n\n---\nSent from Portfolio Contact Form`
   );
   return `https://mail.google.com/mail/?view=cm&fs=1&to=${RECIPIENT_EMAIL}&su=${subject}&body=${body}`;
 }
