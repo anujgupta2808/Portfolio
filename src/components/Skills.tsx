@@ -24,7 +24,7 @@ export const Skills: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">

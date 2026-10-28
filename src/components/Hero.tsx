@@ -40,9 +40,9 @@ export const Hero: React.FC = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-brand-neon/10 blur-[130px] rounded-full pointer-events-none -z-10" />
       <div className="absolute top-10 right-10 w-[450px] h-[450px] bg-brand-neon/5 blur-[100px] rounded-full pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center">
         {/* Main Hero Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
           {/* Desktop Left Social Rail */}
           <motion.div
@@ -62,7 +62,7 @@ export const Hero: React.FC = () => {
             className="lg:col-span-6 flex flex-col items-start z-10"
           >
             {/* Tagline */}
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-3">
               <span className="text-brand-neon font-display text-xs md:text-sm tracking-[0.25em] uppercase font-semibold">
                 {profileData.tagline}
               </span>
@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Main Name Heading */}
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-none mb-6">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none mb-5">
               {profileData.firstName}{' '}
               <span className="text-brand-neon drop-shadow-[0_0_25px_rgba(255,23,68,0.6)]">
                 {profileData.lastName}
@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
             </h1>
 
             {/* Headline with emphasis */}
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white leading-snug mb-5">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug mb-4">
               {profileData.headlinePrefix}{' '}
               <span className="text-brand-neon drop-shadow-[0_0_15px_rgba(255,23,68,0.5)]">
                 {profileData.headlineEmphasis}
@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
             </h2>
 
             {/* Description */}
-            <p className="text-text-secondary text-base md:text-lg max-w-xl leading-relaxed mb-8 font-sans">
+            <p className="text-text-secondary text-sm md:text-base max-w-lg leading-relaxed mb-7 font-sans">
               {profileData.shortBio}
             </p>
 
@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 href="#projects"
                 onClick={scrollToProjects}
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-red text-white font-display font-semibold text-sm md:text-base tracking-wide hover:shadow-[0_0_25px_rgba(255,23,68,0.7)] transition-shadow duration-300"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-gradient-red text-white font-display font-semibold text-sm tracking-wide hover:shadow-[0_0_25px_rgba(255,23,68,0.7)] transition-shadow duration-300"
               >
                 <span>View My Projects</span>
                 <ArrowRight className="w-4 h-4" />
@@ -109,7 +109,7 @@ export const Hero: React.FC = () => {
                 href="https://github.com/anujgupta2808"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full border border-border-subtle bg-bg-card/70 hover:border-brand-neon/60 text-white font-display font-medium text-sm md:text-base tracking-wide hover:shadow-[0_0_15px_rgba(255,23,68,0.3)] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full border border-border-subtle bg-bg-card/70 hover:border-brand-neon/60 text-white font-display font-medium text-sm tracking-wide hover:shadow-[0_0_15px_rgba(255,23,68,0.3)] transition-all duration-300"
               >
                 <Github className="w-4 h-4 text-white" />
                 <span>GitHub</span>
@@ -132,17 +132,17 @@ export const Hero: React.FC = () => {
             className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0"
           >
             {/* Ambient Red Glows behind portrait */}
-            <div className="absolute w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] rounded-full bg-brand-neon/20 blur-[80px] pointer-events-none -z-10" />
+            <div className="absolute w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] rounded-full bg-brand-neon/20 blur-[80px] pointer-events-none -z-10" />
 
             {/* Futuristic Angular Red Geometric Frame with gentle floating */}
             <motion.div
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative w-[280px] sm:w-[340px] md:w-[380px] group"
+              className="relative w-[250px] sm:w-[290px] md:w-[330px] group"
             >
               {/* Decorative Rotated Red Frame 1 */}
               <div
-                className="absolute -inset-4 sm:-inset-6 border-2 border-brand-neon/70 rounded-2xl sm:rounded-3xl pointer-events-none transform rotate-3 shadow-[0_0_20px_rgba(255,23,68,0.4)] transition-transform duration-700 group-hover:rotate-6"
+                className="absolute -inset-3 sm:-inset-5 border-2 border-brand-neon/70 rounded-2xl sm:rounded-3xl pointer-events-none transform rotate-3 shadow-[0_0_20px_rgba(255,23,68,0.4)] transition-transform duration-700 group-hover:rotate-6"
                 aria-hidden="true"
               />
 
@@ -171,7 +171,7 @@ export const Hero: React.FC = () => {
                 initial={{ scale: 0, rotate: -25, opacity: 0 }}
                 animate={{ scale: 1, rotate: -12, opacity: 1 }}
                 transition={{ delay: 0.6, type: 'spring', damping: 14 }}
-                className="absolute -top-10 -right-6 sm:-top-12 sm:-right-8 flex flex-col items-center pointer-events-none select-none z-20"
+                className="absolute -top-10 -right-4 sm:-top-11 sm:-right-6 flex flex-col items-center pointer-events-none select-none z-20"
               >
                 <span className="font-handwriting text-2xl sm:text-3xl text-white font-bold tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                   Hi, I'm Anuj
@@ -192,15 +192,15 @@ export const Hero: React.FC = () => {
               </motion.div>
 
               {/* Hero Side Motto: CODE CREATE LEARN GROW */}
-              <div className="hidden sm:flex absolute -right-16 md:-right-20 top-1/2 -translate-y-1/2 flex-col items-center gap-1.5 select-none pointer-events-none">
-                <div className="writing-vertical-lr flex flex-col items-center gap-2 text-[10px] md:text-xs font-display font-extrabold tracking-[0.3em] uppercase text-text-secondary/80">
+              <div className="hidden xl:flex absolute -right-10 top-1/2 -translate-y-1/2 flex-col items-center gap-1.5 select-none pointer-events-none">
+                <div className="writing-vertical-lr flex flex-col items-center gap-2 text-[10px] font-display font-extrabold tracking-[0.25em] uppercase text-text-secondary/80">
                   {profileData.motto.map((word, idx) => (
                     <span key={idx} className="hover:text-white transition-colors">
                       {word}
                     </span>
                   ))}
                 </div>
-                <div className="w-[2px] h-8 bg-brand-neon shadow-[0_0_8px_#FF1744] mt-2" />
+                <div className="w-[2px] h-6 bg-brand-neon shadow-[0_0_8px_#FF1744] mt-1.5" />
               </div>
             </motion.div>
 

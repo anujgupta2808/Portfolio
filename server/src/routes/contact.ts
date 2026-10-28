@@ -48,9 +48,35 @@ contactRouter.post('/', contactLimiter, async (req: Request, res: Response, next
 
     const saved = await saveContactSubmission({ name, email, subject, message });
 
+    // Forward to email delivery endpoint so Anuj receives the email in anujgupta26610812@gmail.com
+    let emailDelivered = false;
+    try {
+      const emailFormData = new FormData();
+      emailFormData.append('name', name);
+      emailFormData.append('email', email);
+      emailFormData.append('subject', subject);
+      emailFormData.append('message', message);
+
+      const emailResponse = await fetch('https://shipmyform.com/to/anujgupta26610812@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Origin': 'https://anujgupta2808.github.io',
+        },
+        body: emailFormData,
+      });
+
+      const emailJson: any = await emailResponse.json().catch(() => ({}));
+      console.log('[EMAIL FORWARD] ShipMyForm response:', emailJson);
+      emailDelivered = emailJson?.ok === true;
+    } catch (err) {
+      console.warn('[EMAIL FORWARD ERROR]', err);
+    }
+
     res.status(201).json({
       success: true,
-      message: 'Thank you for reaching out, Anuj will get back to you soon!',
+      emailDelivered,
+      message: 'Thank you for reaching out! Your message has been sent to Anuj Gupta.',
       data: {
         id: saved.id,
         created_at: saved.created_at,

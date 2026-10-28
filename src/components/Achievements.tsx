@@ -19,7 +19,7 @@ export const Achievements: React.FC = () => {
       {/* Background ambient light */}
       <div className="absolute top-1/2 right-1/4 w-[450px] h-[450px] bg-brand-neon/5 blur-[130px] rounded-full pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Triad Layout matching reference image */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">

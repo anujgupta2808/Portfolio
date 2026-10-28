@@ -12,7 +12,7 @@ export const Contact: React.FC = () => {
       {/* Background ambient light */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-brand-neon/5 blur-[160px] rounded-full pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <SectionHeading
