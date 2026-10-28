@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navItems } from './Navbar';
-import { Download, X } from 'lucide-react';
+import { Download, X, FileText } from 'lucide-react';
 import { profileData } from '../data/profile';
 import { SocialLinks } from './SocialLinks';
 import { AgLogo } from './AgLogo';
@@ -73,7 +73,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
               );
             })}
 
-            <div className="pt-4 mt-2 border-t border-border-subtle/40">
+            <div className="pt-4 mt-2 border-t border-border-subtle/40 flex flex-col gap-2.5">
               <a
                 href={profileData.resumeUrl}
                 download="Anuj_Gupta_Resume.pdf"
@@ -83,7 +83,18 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                 className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-red text-white font-semibold shadow-[0_0_20px_rgba(255,23,68,0.4)]"
               >
                 <Download className="w-4 h-4" />
-                <span>Download Resume</span>
+                <span>Download Resume (PDF)</span>
+              </a>
+
+              <a
+                href={profileData.resumeHtmlUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="w-full flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-border-subtle text-text-secondary hover:text-white hover:border-brand-neon text-sm font-medium transition-colors"
+              >
+                <FileText className="w-4 h-4 text-brand-neon" />
+                <span>View Resume Online</span>
               </a>
             </div>
           </div>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuj Gupta | Resume</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e9eeee;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #263238;
+            padding: 25px;
+        }
+
+        /* TOP ACTION BAR (Hidden in Print/PDF) */
+        .top-bar {
+            max-width: 950px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 12px 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #267c80;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #1a5659;
+            text-decoration: underline;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .print-btn,
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .print-btn {
+            background: #267c80;
+            color: #ffffff;
+        }
+
+        .print-btn:hover {
+            background: #1e6467;
+            text-decoration: none;
+        }
+
+        .download-btn {
+            background: #edf8f8;
+            color: #267c80;
+            border: 1px solid #76babb;
+        }
+
+        .download-btn:hover {
+            background: #dbeef0;
+            text-decoration: none;
+        }
+
+        a {
+            color: #267c80;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .resume {
+            width: 100%;
+            max-width: 950px;
+            margin: auto;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 35% 65%;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* LEFT SIDEBAR */
+
+        .sidebar {
+            background: #edf8f8;
+            padding: 30px 25px;
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile img {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #d3eaea;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(38, 124, 128, 0.15);
+        }
+
+        .profile h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+            color: #18282b;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .profile .headline {
+            font-size: 11px;
+            line-height: 1.7;
+            letter-spacing: 0.8px;
+            font-weight: bold;
+            color: #536b6d;
+        }
+
+        h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #35494b;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            color: #18282b;
+        }
+
+        .sidebar-section {
+            margin-bottom: 27px;
+        }
+
+        .sidebar p {
+            font-size: 11px;
+            color: #526063;
+            line-height: 1.7;
+        }
+
+        /* SKILLS */
+
+        .skill {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #2b3a3c;
+        }
+
+        .skill-bar {
+            height: 7px;
+            width: 100%;
+            background: #d2e5e5;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: #76babb;
+            border-radius: 5px;
+        }
+
+        /* LANGUAGES */
+
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .language {
+            width: 58px;
+            height: 58px;
+            border: 3px solid #80c1c2;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: #267c80;
+            background: #ffffff;
+        }
+
+        /* CONTACT */
+
+        .contact p {
+            margin-bottom: 11px;
+            font-size: 10.5px;
+            overflow-wrap: anywhere;
+            line-height: 1.6;
+            color: #4b585a;
+        }
+
+        .contact p strong {
+            color: #18282b;
+            font-size: 11px;
+        }
+
+        /* RIGHT CONTENT */
+
+        .main {
+            padding: 35px 32px;
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        .section>p {
+            font-size: 11px;
+            line-height: 1.8;
+            color: #536063;
+        }
+
+        .item {
+            margin-bottom: 17px;
+        }
+
+        .item h3 {
+            font-size: 12.5px;
+            line-height: 1.5;
+            margin-bottom: 4px;
+            color: #1a292b;
+        }
+
+        .item p {
+            font-size: 11px;
+            line-height: 1.7;
+            color: #586568;
+        }
+
+        .meta {
+            font-size: 10.5px;
+            color: #667679;
+            line-height: 1.6;
+            margin-bottom: 2px;
+        }
+
+        .grade {
+            color: #267c80;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        /* PROJECTS */
+
+        .project {
+            border-left: 3px solid #83c4c4;
+            padding-left: 12px;
+            margin-bottom: 17px;
+        }
+
+        .project h3 {
+            font-size: 12.5px;
+            margin-bottom: 5px;
+            color: #18282b;
+        }
+
+        .project p {
+            font-size: 10.5px;
+            line-height: 1.7;
+            color: #596669;
+        }
+
+        .tech {
+            font-size: 10px;
+            color: #267c80;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        /* STRENGTHS */
+
+        .strengths {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .strengths span {
+            font-size: 10px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            background: #edf8f8;
+            color: #31585a;
+            font-weight: 600;
+            border: 1px solid #d2eaea;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 650px) {
+            body {
+                padding: 12px;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .actions {
+                justify-content: stretch;
+            }
+
+            .print-btn,
+            .download-btn {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .resume {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar,
+            .main {
+                padding: 25px;
+            }
+
+            .profile img {
+                width: 125px;
+                height: 125px;
+            }
+        }
+
+        /* PRINT / PDF */
+
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                padding: 0;
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .resume {
+                width: 100%;
+                max-width: none;
+                box-shadow: none;
+                grid-template-columns: 35% 65%;
+                border-radius: 0;
+                overflow: visible;
+            }
+
+            .sidebar {
+                padding: 20px 17px;
+            }
+
+            .main {
+                padding: 22px 20px;
+            }
+
+            .profile img {
+                width: 105px;
+                height: 105px;
+            }
+
+            .profile h1 {
+                font-size: 23px;
+            }
+
+            h2 {
+                margin-bottom: 11px;
+            }
+
+            .sidebar-section,
+            .section,
+            .item,
+            .project {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume">
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="profile">
+                <!-- Profile Photo -->
+                <img src="./13.png" alt="Anuj Gupta" onerror="this.onerror=null; this.src='./profile.jpg';">
+
+                <h1>Anuj Gupta</h1>
+
+                <p class="headline">
+                    SYBSc IT STUDENT<br>
+                    FRONTEND DEVELOPER
+                </p>
+            </div>
+
+            <section class="sidebar-section">
+                <h2>About Me</h2>
+
+                <p>
+                    Motivated Information Technology student interested in
+                    frontend development, software engineering, and graphic
+                    design. I enjoy developing practical projects, learning
+                    new technologies, and solving problems through code.
+                </p>
+            </section>
+
+            <section class="sidebar-section">
+                <h2>Technical Skills</h2>
+
+                <div class="skill">
+                    <div class="skill-name">HTML &amp; CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">Java</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:70%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">C / C++</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:70%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">SQL</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:70%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">Graphic Design</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">Advanced Excel</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">Advanced Tally</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width:65%"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="sidebar-section">
+                <h2>Languages</h2>
+
+                <div class="languages">
+                    <div class="language">English</div>
+                    <div class="language">Hindi</div>
+                    <div class="language">Marathi</div>
+                </div>
+            </section>
+
+            <section class="sidebar-section contact">
+                <h2>Contact</h2>
+
+                <p>
+                    <strong>Email</strong><br>
+                    <a href="mailto:anujgupta26610812@gmail.com">anujgupta26610812@gmail.com</a>
+                </p>
+
+                <p>
+                    <strong>Phone</strong><br>
+                    <a href="tel:+918779747746">+91 8779747746</a>
+                </p>
+
+                <p>
+                    <strong>GitHub</strong><br>
+                    <a href="https://github.com/anujgupta2808" target="_blank" rel="noopener noreferrer">
+                        github.com/anujgupta2808
+                    </a>
+                </p>
+
+                <p>
+                    <strong>LinkedIn</strong><br>
+                    <a href="https://www.linkedin.com/in/anuj-gupta-7aaabb2b9/" target="_blank"
+                        rel="noopener noreferrer">
+                        www.linkedin.com/in/anuj-gupta-7aaabb2b9/
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Portfolio</strong><br>
+                    <a href="https://anujgupta2808.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
+                        anujgupta2808.github.io/Portfolio
+                    </a>
+                </p>
+            </section>
+
+        </aside>
+
+        <!-- RIGHT CONTENT -->
+
+        <main class="main">
+            <br><br>
+            <section class="section">
+                <h2>Professional Profile</h2>
+
+                <p>
+                    B.Sc. IT student and aspiring software developer with
+                    interests in frontend development, programming,
+                    databases, and web design. Focused on building
+                    responsive websites and useful software projects.
+                    Seeking opportunities to apply technical knowledge
+                    and gain practical development experience.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Education</h2>
+
+                <div class="item">
+                    <h3>
+                        Bachelor of Science in Information Technology
+                    </h3>
+
+                    <div class="meta">
+                        Thakur College of Science and Commerce
+                    </div>
+
+                    <p>Currently studying SYBSc IT</p>
+                </div>
+
+                <div class="item">
+                    <h3>Higher Secondary Certificate (HSC)</h3>
+
+                    <p>Commerce</p>
+
+                    <p class="grade">Percentage: 83.67%</p>
+                </div>
+
+                <div class="item">
+                    <h3>Secondary School Certificate (SSC)</h3>
+
+                    <p class="grade">Percentage: 77%</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Academic Highlights</h2>
+
+                <div class="item">
+                    <h3>FYBSc IT – Semester 1</h3>
+                    <p class="grade">SGPA: 8.89</p>
+                </div>
+
+                <div class="item">
+                    <h3>FYBSc IT – Semester 2</h3>
+                    <p class="grade">SGPA: 8.73</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Projects</h2>
+
+                <div class="project">
+                    <h3>DocuServe – Smart Document Tools</h3>
+
+                    <p>
+                        A web project focused on document utilities and
+                        PDF, Word, and Excel workflows.
+                    </p>
+
+                    <div class="tech">
+                        HTML · CSS · JavaScript
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>ResumePro-Builder</h3>
+
+                    <p>
+                        A resume-building project designed to help users
+                        prepare professional resumes.
+                    </p>
+
+                    <div class="tech">
+                        Web Development
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>SoulTalkAI</h3>
+
+                    <p>
+                        An AI companion project featuring conversational
+                        interaction and voice-related functionality.
+                    </p>
+
+                    <div class="tech">
+                        AI · Python · Web Technologies
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>ClassCore</h3>
+
+                    <p>
+                        A student record portal concept for managing,
+                        searching, and organizing student information.
+                    </p>
+
+                    <div class="tech">
+                        HTML · CSS · JavaScript
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>CodeQuiz</h3>
+
+                    <p>
+                        An interactive quiz project for practicing
+                        programming concepts.
+                    </p>
+
+                    <div class="tech">
+                        HTML · CSS · JavaScript
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>Advanced Calculator</h3>
+
+                    <p>
+                        A browser-based calculator with scientific
+                        calculations and a responsive interface.
+                    </p>
+
+                    <div class="tech">
+                        HTML · CSS · JavaScript
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>HTML5 Games Collection</h3>
+
+                    <p>
+                        A collection of browser games featuring
+                        interactive gameplay.
+                    </p>
+
+                    <div class="tech">
+                        HTML5 · CSS · JavaScript
+                    </div>
+                </div>
+
+                <div class="project">
+
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Strengths</h2>
+
+                <div class="strengths">
+                    <span>Quick Learner</span>
+                    <span>Problem-Solving</span>
+                    <span>Teamwork</span>
+                    <span>Adaptability</span>
+                    <span>Creativity</span>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

@@ -11,6 +11,7 @@ export interface ProfileData {
   aboutBio: string;
   portraitUrl: string;
   resumeUrl: string;
+  resumeHtmlUrl: string;
   contact: {
     email: string;
     phone: string;
@@ -41,6 +42,7 @@ export const profileData: ProfileData = {
   aboutBio: "I'm Anuj Gupta, a passionate and dedicated student pursuing SYBSc IT at Thakur College of Science and Commerce (Mumbai University). I enjoy exploring cutting-edge web technologies, building interactive software solutions, and continuously learning to grow in the tech world.",
   portraitUrl: getAssetUrl('/images/anuj-portrait.png'),
   resumeUrl: getAssetUrl('/resume.pdf'),
+  resumeHtmlUrl: getAssetUrl('/resume.html'),
   contact: {
     email: "anujgupta26610812@gmail.com",
     phone: "+91 8779747746",
