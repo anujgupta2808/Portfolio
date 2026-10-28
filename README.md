@@ -66,13 +66,38 @@ A modern, high-performance personal portfolio built with **React**, **TypeScript
    npm run dev
    ```
 
-4. Build for production:
+4. Build for production (outputs static site to `/dist`):
    ```bash
    npm run build
    ```
+
+5. Preview the production build locally:
+   ```bash
+   npm run preview
+   ```
+
+---
+
+## 🌐 Running on GitHub Pages (100% Serverless)
+
+The application is fully client-side and requires **no backend server** to run live on GitHub Pages. Contact submissions automatically use an offline/localStorage fallback with celebratory confetti.
+
+### Method 1: Automatic Deployment with GitHub Actions (Recommended)
+1. On GitHub, go to your repository: [https://github.com/anujgupta2808/Portfolio](https://github.com/anujgupta2808/Portfolio)
+2. Click **Settings** ➔ **Pages** (in the left sidebar).
+3. Under **Build and deployment** ➔ **Source**, select **GitHub Actions**.
+4. That's it! Every time you push to `main`, GitHub automatically builds and publishes your site.
+
+### Method 2: 1-Click Command via `gh-pages`
+You can also deploy manually at any time by running:
+```bash
+npm run deploy
+```
+This builds `/dist` and publishes it directly to the `gh-pages` branch.
 
 ---
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
