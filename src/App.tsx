@@ -10,6 +10,7 @@ import { Achievements } from './components/Achievements';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { BackgroundEffects } from './components/BackgroundEffects';
+import SplashCursor from './components/SplashCursor';
 import { useActiveSection } from './hooks/useActiveSection';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 
@@ -30,6 +31,17 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen bg-bg-primary text-text-primary selection:bg-brand-neon selection:text-white font-sans antialiased overflow-x-hidden">
+      {/* Interactive WebGL Fluid Splash Cursor Effect */}
+      <SplashCursor
+        rainbow={false}
+        size={1}
+        force={1}
+        swirl={3}
+        trail={1}
+        clickSplash
+        colors={["#ef4444", "#000000"]}
+      />
+
       {/* Ambient background particles & grid */}
       <BackgroundEffects />
 
