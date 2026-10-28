@@ -309,7 +309,7 @@ export interface SplashCursorProps {
 }
 
 export function SplashCursor({
-  colors = ['#FF1744', '#EF4444', '#FF5252'],
+  colors = ['#ef4444', '#000000'],
   rainbow = false,
   colorSpeed = 1,
   intensity = 1,
