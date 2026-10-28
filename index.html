@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -8,17 +8,24 @@
     <meta name="description" content="Explore Anuj Gupta's developer portfolio, technical skills, projects, education, and achievements. Turning ideas into real digital experiences." />
     <meta name="theme-color" content="#050505" />
 
+    <!-- Trailing slash redirect for GitHub Pages -->
+    <script>
+      if (window.location.pathname === '/Portfolio') {
+        window.location.replace('/Portfolio/' + window.location.search + window.location.hash);
+      }
+    </script>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Anuj Gupta | Developer Portfolio" />
     <meta property="og:description" content="Explore Anuj Gupta's developer portfolio, technical skills, projects, education, and achievements." />
-    <meta property="og:image" content="./images/anuj-portrait.png" />
+    <meta property="og:image" content="https://anujgupta2808.github.io/Portfolio/images/anuj-portrait.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Anuj Gupta | Developer Portfolio" />
     <meta property="twitter:description" content="Explore Anuj Gupta's developer portfolio, technical skills, projects, education, and achievements." />
-    <meta property="twitter:image" content="./images/anuj-portrait.png" />
+    <meta property="twitter:image" content="https://anujgupta2808.github.io/Portfolio/images/anuj-portrait.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../lib/assets';
+
 export interface ProfileData {
   fullName: string;
   firstName: string;
@@ -37,8 +39,8 @@ export const profileData: ProfileData = {
   tagline: "HELLO, I'M",
   shortBio: "I'm a passionate developer exploring web design, software development, and AI-powered ideas. I turn ideas into real, impactful digital solutions.",
   aboutBio: "I'm Anuj Gupta, a passionate and dedicated student pursuing SYBSc IT at Thakur College of Science and Commerce (Mumbai University). I enjoy exploring cutting-edge web technologies, building interactive software solutions, and continuously learning to grow in the tech world.",
-  portraitUrl: "/images/anuj-portrait.png",
-  resumeUrl: "/resume.pdf",
+  portraitUrl: getAssetUrl('/images/anuj-portrait.png'),
+  resumeUrl: getAssetUrl('/resume.pdf'),
   contact: {
     email: "anujgupta26610812@gmail.com",
     phone: "+91 8779747746",

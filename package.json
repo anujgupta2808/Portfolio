@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "start": "node dist-server/server.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",

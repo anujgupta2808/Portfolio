@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../lib/assets';
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -22,7 +24,7 @@ export const projectsData: ProjectItem[] = [
     category: 'Web Development',
     shortDescription: 'A personal finance project for recording expenses and viewing spending summaries.',
     fullDescription: 'A personal finance web application for tracking daily expenses, budgeting, and viewing spending analytics. Allows users to categorize purchases, set financial goals, and monitor monthly balances.',
-    thumbnail: '/images/project-expense.jpg',
+    thumbnail: getAssetUrl('/images/project-expense.jpg'),
     technologies: ['JavaScript', 'HTML5', 'CSS3', 'LocalStorage'],
     features: [
       'Expense and income tracking ledger',
@@ -40,7 +42,7 @@ export const projectsData: ProjectItem[] = [
     category: 'Web Development',
     shortDescription: 'A document-services website concept focused on file conversion and spreadsheet analysis.',
     fullDescription: 'A comprehensive document services platform enabling users to organize, convert file formats, and analyze spreadsheets directly in the browser with security and speed.',
-    thumbnail: '/images/project-docuserve.jpg',
+    thumbnail: getAssetUrl('/images/project-docuserve.jpg'),
     technologies: ['HTML5', 'CSS3', 'JavaScript'],
     features: [
       'Document conversion (DOCX, PDF, XLSX)',
@@ -58,7 +60,7 @@ export const projectsData: ProjectItem[] = [
     category: 'Python & AI',
     shortDescription: 'An AI-powered project for business workflow detection and diagram generation.',
     fullDescription: 'An intelligent AI workflow platform that detects bottlenecks in business pipelines and automatically generates visual node-graph process diagrams with metrics and route optimizations.',
-    thumbnail: '/images/project-procelya.jpg',
+    thumbnail: getAssetUrl('/images/project-procelya.jpg'),
     technologies: ['Python', 'AI/ML', 'NLP', 'Workflow Engine'],
     features: [
       'AI-driven business pipeline bottleneck detection',
@@ -76,7 +78,7 @@ export const projectsData: ProjectItem[] = [
     category: 'Web Development',
     shortDescription: 'A polished student record portal with login/signup flow, live search, student records table, and CSV export.',
     fullDescription: 'A comprehensive student record portal designed for schools and universities. Features responsive attendance management, live instant search, student profiles, and one-click CSV export.',
-    thumbnail: '/images/project-classcore.jpg',
+    thumbnail: getAssetUrl('/images/project-classcore.jpg'),
     technologies: ['HTML5', 'CSS3', 'JavaScript'],
     features: [
       'Student attendance tracking (Present, Absent, Late)',
@@ -94,7 +96,7 @@ export const projectsData: ProjectItem[] = [
     category: 'Web Development',
     shortDescription: 'An immersive, cinematic scrolling experience showcasing Marvel\'s iconic heroes with GSAP animations, Locomotive Scroll, and audio integration.',
     fullDescription: 'A cinematic web experience dedicated to Marvel heroes. Built with GSAP timelines, Locomotive Scroll for inertia physics, custom audio tracks, and high-impact visual effects.',
-    thumbnail: '/images/project-marvel.jpg',
+    thumbnail: getAssetUrl('/images/project-marvel.jpg'),
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'GSAP', 'Locomotive Scroll'],
     features: [
       'Cinematic parallax scroll-driven hero sequences',
@@ -112,7 +114,7 @@ export const projectsData: ProjectItem[] = [
     category: 'Other Projects',
     shortDescription: 'Discover 16+ public repositories, web tools, interactive games, and software experiments on GitHub.',
     fullDescription: 'Visit Anuj Gupta\'s official GitHub profile to explore over 16+ open-source repositories including CodeQuiz, ResumePro-Builder, Retro Games Collection, Advanced Calculator, and ongoing projects.',
-    thumbnail: '/images/project-more-github.jpg',
+    thumbnail: getAssetUrl('/images/project-more-github.jpg'),
     technologies: ['GitHub', '16+ Repos', 'Open Source', 'Explore'],
     features: [
       '16+ active public repositories on GitHub',
