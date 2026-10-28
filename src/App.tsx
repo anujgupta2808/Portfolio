@@ -52,8 +52,8 @@ export const App: React.FC = () => {
         <Hero />
         <About />
         <Skills />
-        <Education />
         <Projects />
+        <Education />
         <Achievements />
         <Contact />
       </main>
