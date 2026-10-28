@@ -1,31 +1,38 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/Portfolio/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anuj Gupta | Developer Portfolio</title>
     <meta name="description" content="Explore Anuj Gupta's developer portfolio, technical skills, projects, education, and achievements. Turning ideas into real digital experiences." />
     <meta name="theme-color" content="#050505" />
 
+    <!-- Trailing slash redirect for GitHub Pages -->
+    <script>
+      if (window.location.pathname === '/Portfolio') {
+        window.location.replace('/Portfolio/' + window.location.search + window.location.hash);
+      }
+    </script>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Anuj Gupta | Developer Portfolio" />
     <meta property="og:description" content="Explore Anuj Gupta's developer portfolio, technical skills, projects, education, and achievements." />
-    <meta property="og:image" content="./images/anuj-portrait.png" />
+    <meta property="og:image" content="https://anujgupta2808.github.io/Portfolio/images/anuj-portrait.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Anuj Gupta | Developer Portfolio" />
     <meta property="twitter:description" content="Explore Anuj Gupta's developer portfolio, technical skills, projects, education, and achievements." />
-    <meta property="twitter:image" content="./images/anuj-portrait.png" />
+    <meta property="twitter:image" content="https://anujgupta2808.github.io/Portfolio/images/anuj-portrait.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-BdKpvz2f.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CWXSJz5u.css">
+    <script type="module" crossorigin src="/Portfolio/assets/index-DKeAulIA.js"></script>
+    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-DJ4qZss9.css">
   </head>
   <body class="bg-bg-primary text-text-primary selection:bg-brand-neon selection:text-white overflow-x-hidden antialiased">
     <div id="root"></div>
