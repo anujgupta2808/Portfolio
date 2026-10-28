@@ -1,36 +1,78 @@
-# Anuj Gupta
+# Anuj Gupta — Developer Portfolio
 
-**SYBSc IT Student | Developer**
+A modern, high-performance personal portfolio built with **React**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, and **Lenis Smooth Scroll**. Designed with a futuristic dark/neon-red visual identity showcasing selected projects, education, technical skills, and achievements.
 
--> About Me
+🌐 **Live Demo:** [https://anujgupta2808.github.io/Portfolio/](https://anujgupta2808.github.io/Portfolio/)  
+👤 **GitHub:** [https://github.com/anujgupta2808](https://github.com/anujgupta2808)  
+💼 **LinkedIn:** [https://www.linkedin.com/in/anuj-gupta-7aaabb2b9/](https://www.linkedin.com/in/anuj-gupta-7aaabb2b9/)
 
-Hi! I'm **Anuj Gupta**, a passionate tech student and developer from Mumbai University. I enjoy programming, building responsive web experiences, and solving real-world problems with code.
+---
 
--> Skills
+## ✨ Features
 
-- HTML / CSS / JavaScript
-- C / C++
-- Python
-- Java
-- Hardware troubleshooting and PC building
-- Graphic design
-- Advanced Tally ERP
-- Advanced Excel
+- **Smooth Inertia Scrolling:** Powered by [Lenis](https://lenis.darkroom.engineering/) for a fluid, momentum-based scrolling experience.
+- **Fluid Micro-Animations:** Staggered section entrances, interactive hover physics, and layout animations powered by [Framer Motion](https://www.framer.com/motion/).
+- **Curated Projects Showcase:**
+  - 💸 **ExpenseTracker** — Personal finance tracker with expense categorization & spending analytics.
+  - 📁 **DocuServe** — Document-services web platform for file conversion & data processing.
+  - 📦 **Procelya-AI** — AI-powered workflow analysis & automated diagram generation.
+  - 🎓 **ClassCore** — Complete student & classroom management web application.
+  - 🎬 **Marvel Studios Hub** — Cinematic superhero universe explorer with cast profiles & movie trailers.
+  - 🚀 **Explore More on GitHub** — Direct access to 16+ open-source repositories.
+- **Interactive Project Modals:** Compact, responsive detail dialog with spring animation, key highlights, tech tags, and live demo/repo links.
+- **Technical Skills Matrix:** Interactive technology badges with category filtering and detail cards.
+- **Education & Languages:** Academic timeline, learning highlights, and animated language proficiency bars.
+- **Achievements & Certifications:** Verified credentials modal inspection.
+- **Contact Form:** Interactive contact form with client-side fallback and celebration confetti.
 
--> Education
+---
 
-- **10th Standard** — 77% (Maharashtra Board)
-- **12th Standard** — 83.67% (Maharashtra Board)
-- **FYBSc IT** — 8.73 SGPA (Mumbai University)
-- **SYBSc IT** — Pursuing Second Year (Mumbai University)
+## 🛠️ Tech Stack
 
--> Services
+- **Frontend:** React 18, TypeScript, Vite
+- **Styling:** Tailwind CSS, Custom Neon Utilities
+- **Animations:** Framer Motion, Lenis Smooth Scroll, Canvas Confetti
+- **Icons:** Lucide React
+- **Backend (Optional):** Node.js, Express, tsx
 
-- Web development with modern, responsive design
-- Programming projects in HTML, CSS, JavaScript, Python, and Java
-- Hardware support, PC assembly, and optimization
-- Graphic design for logos, posters, and digital media
+---
 
--> Contact
+## 🚀 Getting Started
 
-Feel free to connect through the portfolio site or add your preferred contact details here.
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/anujgupta2808/Portfolio.git
+   cd Portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start development server:
+   ```bash
+   npm run dev:client
+   ```
+   Or run client and local API server concurrently:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

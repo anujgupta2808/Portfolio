@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: #050505;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom dark red scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0B0D;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #29292F;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF1744;
+  }
+}
+
+@layer utilities {
+  .text-neon-red {
+    color: #FF1744;
+    text-shadow: 0 0 15px rgba(255, 23, 68, 0.6);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.5);
+  }
+
+  .border-neon-red {
+    border-color: #FF1744;
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.35);
+  }
+
+  .bg-radial-red {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 23, 68, 0.15) 0%, rgba(5, 5, 5, 0) 70%);
+  }
+
+  .bg-gradient-red {
+    background: linear-gradient(135deg, #FF1744 0%, #B00020 100%);
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(180deg, rgba(20, 20, 24, 0.7) 0%, rgba(10, 10, 12, 0.9) 100%);
+  }
+
+  /* Cyberpunk geometric corner cut */
+  .cyber-cut {
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+  }
+
+  .cyber-cut-sm {
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+}
+
+/* Subtle mouse trail / glow helper */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 23, 68, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
