@@ -332,6 +332,31 @@ export function SplashCursor({
   const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [generation, setGeneration] = useState(0);
+  const [isCursorDevice, setIsCursorDevice] = useState(false);
+
+  useEffect(() => {
+    const checkCursorDevice = () => {
+      // Only active on laptops/desktops where a mouse or fine cursor exists
+      const hasFineCursor = window.matchMedia('(pointer: fine) and (hover: hover)').matches;
+      const isDesktopWidth = window.innerWidth >= 768;
+      setIsCursorDevice(hasFineCursor && isDesktopWidth);
+    };
+
+    checkCursorDevice();
+    window.addEventListener('resize', checkCursorDevice);
+
+    const mediaQuery = window.matchMedia('(pointer: fine) and (hover: hover)');
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', checkCursorDevice);
+    }
+
+    return () => {
+      window.removeEventListener('resize', checkCursorDevice);
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', checkCursorDevice);
+      }
+    };
+  }, []);
 
   const settings = {
     palette: (Array.isArray(colors) && colors.length ? colors : ['#ffffff']).map(parseColor),
@@ -365,6 +390,7 @@ export function SplashCursor({
   }, [contained]);
 
   useEffect(() => {
+    if (!isCursorDevice) return undefined;
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
     const gl = canvas.getContext('webgl2', {
@@ -981,19 +1007,6 @@ export function SplashCursor({
     const onPointerDown = (event: PointerEvent) => {
       if (event.pointerType !== 'touch') press(event.clientX, event.clientY);
     };
-    const onTouchStart = (event: TouchEvent) => {
-      Array.from(event.changedTouches).forEach(touch => {
-        pointers.delete(`t${touch.identifier}`);
-        track(`t${touch.identifier}`, touch.clientX, touch.clientY);
-        press(touch.clientX, touch.clientY);
-      });
-    };
-    const onTouchMove = (event: TouchEvent) => {
-      Array.from(event.changedTouches).forEach(touch => track(`t${touch.identifier}`, touch.clientX, touch.clientY));
-    };
-    const onTouchEnd = (event: TouchEvent) => {
-      Array.from(event.changedTouches).forEach(touch => pointers.delete(`t${touch.identifier}`));
-    };
     const onLeave = () => {
       pointers.forEach(pointer => {
         pointer.ready = false;
@@ -1009,10 +1022,6 @@ export function SplashCursor({
 
     window.addEventListener('pointermove', onPointerMove, { passive: true });
     window.addEventListener('pointerdown', onPointerDown, { passive: true });
-    window.addEventListener('touchstart', onTouchStart, { passive: true });
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
-    window.addEventListener('touchend', onTouchEnd, { passive: true });
-    window.addEventListener('touchcancel', onTouchEnd, { passive: true });
     document.documentElement.addEventListener('pointerleave', onLeave);
     canvas.addEventListener('webglcontextlost', onLost);
     canvas.addEventListener('webglcontextrestored', onRestored);
@@ -1025,16 +1034,16 @@ export function SplashCursor({
       cancelAnimationFrame(raf);
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerdown', onPointerDown);
-      window.removeEventListener('touchstart', onTouchStart);
-      window.removeEventListener('touchmove', onTouchMove);
-      window.removeEventListener('touchend', onTouchEnd);
-      window.removeEventListener('touchcancel', onTouchEnd);
       document.documentElement.removeEventListener('pointerleave', onLeave);
       canvas.removeEventListener('webglcontextlost', onLost);
       canvas.removeEventListener('webglcontextrestored', onRestored);
       release();
     };
-  }, [generation]);
+  }, [generation, isCursorDevice]);
+
+  if (!isCursorDevice) {
+    return null;
+  }
 
   return (
     <div

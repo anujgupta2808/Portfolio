@@ -13,3 +13,12 @@
   width: 100%;
   height: 100%;
 }
+
+/* Strictly hide and disable on touch screens and mobile devices */
+@media (hover: none) or (pointer: coarse), (max-width: 767px) {
+  .splash-cursor {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
