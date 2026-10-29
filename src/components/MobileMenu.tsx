@@ -1,30 +1,54 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { navItems } from './Navbar';
 import { Download, X, FileText } from 'lucide-react';
 import { profileData } from '../data/profile';
 import { SocialLinks } from './SocialLinks';
 import { AgLogo } from './AgLogo';
-
 import { scrollToSection } from '../hooks/useSmoothScroll';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
   activeSection: string;
+  onNavigate?: (id: string) => void;
 }
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
   isOpen,
   onClose,
   activeSection,
+  onNavigate,
 }) => {
+  // Lock body scroll and listen for Escape key when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          onClose();
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isOpen, onClose]);
+
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     onClose();
-    setTimeout(() => {
-      scrollToSection(id, -70);
-    }, 150);
+    if (onNavigate) {
+      onNavigate(id);
+    } else {
+      scrollToSection(id, id === 'home' ? 0 : -70);
+    }
   };
 
   return (
@@ -39,7 +63,18 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         >
           {/* Top Header */}
           <div className="flex items-center justify-between border-b border-border-subtle/50 pb-4">
-            <AgLogo size="sm" />
+            <AgLogo
+              size="sm"
+              onClick={(e) => {
+                e.preventDefault();
+                onClose();
+                if (onNavigate) {
+                  onNavigate('home');
+                } else {
+                  scrollToSection('home', 0);
+                }
+              }}
+            />
             <button
               onClick={onClose}
               aria-label="Close menu"
@@ -61,14 +96,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
                   transition={{ delay: idx * 0.04 }}
                   href={`#${item.id}`}
                   onClick={(e) => handleLinkClick(e, item.id)}
-                  className={`text-xl font-display font-semibold tracking-wider px-4 py-2.5 rounded-lg transition-all duration-300 flex items-center justify-between ${
+                  className={`text-xl font-display font-semibold tracking-wider px-4 py-2.5 rounded-lg transition-all duration-300 flex items-center justify-between cursor-pointer ${
                     isActive
                       ? 'text-brand-neon bg-brand-neon/10 border-l-4 border-brand-neon shadow-[0_0_15px_rgba(255,23,68,0.2)]'
                       : 'text-text-secondary hover:text-white hover:bg-bg-card'
                   }`}
                 >
                   <span>{item.label}</span>
-                  {isActive && <span className="text-xs text-brand-neon uppercase tracking-widest">Active</span>}
+                  {isActive && <span className="text-xs text-brand-neon uppercase tracking-widest font-bold">Active</span>}
                 </motion.a>
               );
             })}

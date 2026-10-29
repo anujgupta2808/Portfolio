@@ -4,7 +4,6 @@ import { SectionHeading } from './SectionHeading';
 import { skillsData, skillCategories, SkillCategory, SkillItem } from '../data/skills';
 import { TechIcon } from './TechIcon';
 import { SkillModal } from './SkillModal';
-import { ArrowRight } from 'lucide-react';
 
 export const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<SkillCategory>('All');
@@ -27,26 +26,13 @@ export const Skills: React.FC = () => {
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div className="mb-12">
           <SectionHeading
             label="MY SKILLS"
             titleWhite="TECHNICAL"
             titleRed="SKILLS"
             subtitle="I work with modern technologies to build interactive and efficient web solutions."
           />
-
-          {/* View All Skills Action button */}
-          <div className="mt-4 md:mt-0">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setActiveCategory('All')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-border-subtle bg-bg-card hover:border-brand-neon hover:text-white text-text-secondary text-sm font-medium transition-all duration-300 group shadow-sm hover:shadow-[0_0_15px_rgba(255,23,68,0.3)]"
-            >
-              <span>View All Skills</span>
-              <ArrowRight className="w-4 h-4 text-brand-neon group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-          </div>
         </div>
 
         {/* Category Filters with Sliding Active Pill */}

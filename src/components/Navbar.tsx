@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { AgLogo } from './AgLogo';
 import { Download, Menu, X } from 'lucide-react';
 import { profileData } from '../data/profile';
-
 import { scrollToSection } from '../hooks/useSmoothScroll';
 
 interface NavbarProps {
   activeSection: string;
+  onNavigate?: (id: string) => void;
   onOpenMobileMenu: () => void;
   mobileMenuOpen: boolean;
 }
@@ -24,6 +24,7 @@ export const navItems = [
 
 export const Navbar: React.FC<NavbarProps> = ({
   activeSection,
+  onNavigate,
   onOpenMobileMenu,
   mobileMenuOpen,
 }) => {
@@ -34,12 +35,17 @@ export const Navbar: React.FC<NavbarProps> = ({
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    scrollToSection(id, -70);
+    if (onNavigate) {
+      onNavigate(id);
+    } else {
+      scrollToSection(id, id === 'home' ? 0 : -70);
+    }
   };
 
   return (
@@ -52,7 +58,17 @@ export const Navbar: React.FC<NavbarProps> = ({
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Left: AG Logo & Name */}
-        <AgLogo size="md" />
+        <AgLogo
+          size="md"
+          onClick={(e) => {
+            e.preventDefault();
+            if (onNavigate) {
+              onNavigate('home');
+            } else {
+              scrollToSection('home', 0);
+            }
+          }}
+        />
 
         {/* Center: Desktop Navigation Links with Gliding Layout Indicator */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-2">
@@ -63,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className={`relative px-3.5 py-1.5 text-xs lg:text-sm font-medium tracking-wide transition-colors duration-200 rounded-full ${
+                className={`relative px-3.5 py-1.5 text-xs lg:text-sm font-medium tracking-wide transition-colors duration-200 rounded-full cursor-pointer select-none ${
                   isActive
                     ? 'text-white font-semibold'
                     : 'text-text-secondary hover:text-white'
@@ -74,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <motion.div
                     layoutId="activeNavIndicator"
                     className="absolute inset-0 bg-brand-neon/15 rounded-full border border-brand-neon/40 shadow-[0_0_12px_rgba(255,23,68,0.3)]"
-                    transition={{ type: 'spring', bounce: 0.2, duration: 0.45 }}
+                    transition={{ type: 'spring', bounce: 0.15, duration: 0.38 }}
                   >
                     <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-brand-neon rounded-full shadow-[0_0_10px_#FF1744]" />
                   </motion.div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, ChevronDown, FolderGit2, Brain, Users, Award, Download } from 'lucide-react';
+import { ArrowRight, Github, ChevronDown, FolderGit2, Brain, Users, Award } from 'lucide-react';
 import { profileData } from '../data/profile';
 import { SocialLinks } from './SocialLinks';
 import { scrollToSection } from '../hooks/useSmoothScroll';
@@ -101,19 +101,6 @@ export const Hero: React.FC = () => {
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-4 h-4" />
-              </motion.a>
-
-              <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                href={profileData.resumeUrl}
-                download="Anuj_Gupta_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-brand-neon/60 bg-bg-card/80 hover:bg-brand-neon/15 text-white font-display font-medium text-sm tracking-wide hover:shadow-[0_0_15px_rgba(255,23,68,0.3)] transition-all duration-300"
-              >
-                <Download className="w-4 h-4 text-brand-neon" />
-                <span>Resume</span>
               </motion.a>
 
               <motion.a

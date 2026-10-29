@@ -1,15 +1,14 @@
 import React from 'react';
 import { AgLogo } from './AgLogo';
 import { ArrowUp } from 'lucide-react';
+import { scrollToSection } from '../hooks/useSmoothScroll';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollToSection('home', 0);
   };
 
   return (
@@ -39,7 +38,7 @@ export const Footer: React.FC = () => {
             <button
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="p-2.5 rounded-full border border-border-subtle bg-bg-card hover:border-brand-neon text-text-secondary hover:text-white hover:bg-brand-neon/10 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-neon group"
+              className="p-2.5 rounded-full border border-border-subtle bg-bg-card hover:border-brand-neon text-text-secondary hover:text-white hover:bg-brand-neon/10 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-neon group cursor-pointer"
             >
               <ArrowUp className="w-4 h-4 text-brand-neon group-hover:-translate-y-0.5 transition-transform" />
             </button>

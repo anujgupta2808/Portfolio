@@ -1,19 +1,34 @@
 import React from 'react';
+import { scrollToSection } from '../hooks/useSmoothScroll';
 
 interface AgLogoProps {
   size?: 'sm' | 'md' | 'lg';
   withText?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
-export const AgLogo: React.FC<AgLogoProps> = ({ size = 'md', withText = true }) => {
+export const AgLogo: React.FC<AgLogoProps> = ({ size = 'md', withText = true, onClick }) => {
   const sizeMap = {
     sm: { box: 'w-7 h-7', text: 'text-sm' },
     md: { box: 'w-9 h-9', text: 'text-base md:text-lg' },
     lg: { box: 'w-12 h-12', text: 'text-xl md:text-2xl' },
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onClick) {
+      onClick(e);
+    } else {
+      e.preventDefault();
+      scrollToSection('home', 0);
+    }
+  };
+
   return (
-    <a href="#home" className="flex items-center gap-2.5 group focus:outline-none focus:ring-1 focus:ring-brand-neon rounded-md px-1">
+    <a
+      href="#home"
+      onClick={handleClick}
+      className="flex items-center gap-2.5 group focus:outline-none focus:ring-1 focus:ring-brand-neon rounded-md px-1 cursor-pointer"
+    >
       {/* AG Monogram SVG */}
       <div className={`${sizeMap[size].box} relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105`}>
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_0_8px_rgba(255,23,68,0.7)]">

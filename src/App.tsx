@@ -27,7 +27,7 @@ const sectionIds = [
 export const App: React.FC = () => {
   useSmoothScroll();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const activeSection = useActiveSection(sectionIds, 120);
+  const { activeSection, scrollToId } = useActiveSection(sectionIds, 110);
 
   return (
     <div className="relative min-h-screen bg-bg-primary text-text-primary selection:bg-brand-neon selection:text-white font-sans antialiased overflow-x-hidden">
@@ -48,6 +48,7 @@ export const App: React.FC = () => {
       {/* Global Sticky Navbar */}
       <Navbar
         activeSection={activeSection}
+        onNavigate={scrollToId}
         onOpenMobileMenu={() => setMobileMenuOpen(true)}
         mobileMenuOpen={mobileMenuOpen}
       />
@@ -57,6 +58,7 @@ export const App: React.FC = () => {
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         activeSection={activeSection}
+        onNavigate={scrollToId}
       />
 
       {/* Main Content Sections */}

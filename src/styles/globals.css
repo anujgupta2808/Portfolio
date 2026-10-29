@@ -6,6 +6,7 @@
   html {
     color-scheme: dark;
     background-color: #050505;
+    scroll-behavior: auto;
   }
 
   /* Custom dark red scrollbar */
