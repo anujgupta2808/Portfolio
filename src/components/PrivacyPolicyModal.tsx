@@ -262,7 +262,7 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ isOpen, 
             </div>
 
             {/* Mouse Scroll Floating Indicator Cue (Auto-hides on scroll) */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
               {showScrollHint && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
@@ -271,9 +271,9 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ isOpen, 
                   transition={{ duration: 0.2 }}
                   onClick={handleScrollDownPrompt}
                   className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 pointer-events-auto flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-bg-card/95 border border-brand-neon/60 shadow-[0_4px_20px_rgba(0,0,0,0.85),0_0_15px_rgba(255,23,68,0.3)] text-xs text-text-primary backdrop-blur-md cursor-pointer hover:border-brand-neon hover:bg-bg-primary transition-all group select-none"
-                >
+                > */}
                   {/* Animated Mouse Icon */}
-                  <div className="w-3.5 h-5 rounded-full border border-brand-neon/80 flex items-start justify-center p-0.5 shadow-[0_0_6px_rgba(255,23,68,0.4)]">
+                  {/* <div className="w-3.5 h-5 rounded-full border border-brand-neon/80 flex items-start justify-center p-0.5 shadow-[0_0_6px_rgba(255,23,68,0.4)]">
                     <div className="w-1 h-1.5 bg-brand-neon rounded-full animate-bounce" />
                   </div>
                   <span className="font-display text-[10px] uppercase font-bold tracking-wider text-text-secondary group-hover:text-white transition-colors">
@@ -282,7 +282,7 @@ export const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ isOpen, 
                   <ChevronDown className="w-3.5 h-3.5 text-brand-neon group-hover:translate-y-0.5 transition-transform" />
                 </motion.div>
               )}
-            </AnimatePresence>
+            </AnimatePresence> */}
 
             {/* Footer Action */}
             <div className="px-6 py-4 border-t border-border-subtle/80 bg-bg-secondary/40 flex items-center justify-between shrink-0">
