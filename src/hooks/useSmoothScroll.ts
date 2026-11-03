@@ -38,7 +38,7 @@ export function useSmoothScroll() {
     // Initial hash scroll handling if page loads with a hash target
     if (window.location.hash) {
       const hashId = window.location.hash.replace(/^#/, '');
-      if (hashId) {
+      if (hashId && hashId !== 'privacy') {
         setTimeout(() => {
           scrollToSection(hashId, hashId === 'home' ? 0 : -70);
         }, 150);
@@ -48,7 +48,9 @@ export function useSmoothScroll() {
     // Handle browser back/forward buttons smoothly
     const handlePopState = () => {
       const hashId = window.location.hash.replace(/^#/, '') || 'home';
-      scrollToSection(hashId, hashId === 'home' ? 0 : -70);
+      if (hashId !== 'privacy') {
+        scrollToSection(hashId, hashId === 'home' ? 0 : -70);
+      }
     };
     window.addEventListener('popstate', handlePopState);
 

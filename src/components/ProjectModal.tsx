@@ -42,9 +42,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           exit={{ opacity: 0 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
           className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md"
+          data-lenis-prevent="true"
+          data-lenis-prevent-wheel="true"
           onClick={onClose}
         >
           <motion.div
+            data-lenis-prevent="true"
+            data-lenis-prevent-wheel="true"
             initial={{ opacity: 0, scale: 0.92, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: 15 }}

@@ -3,12 +3,25 @@ import { AgLogo } from './AgLogo';
 import { ArrowUp } from 'lucide-react';
 import { scrollToSection } from '../hooks/useSmoothScroll';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenPrivacy?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenPrivacy }) => {
   const currentYear = new Date().getFullYear();
 
   const scrollToTop = (e: React.MouseEvent) => {
     e.preventDefault();
     scrollToSection('home', 0);
+  };
+
+  const handlePrivacyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onOpenPrivacy) {
+      onOpenPrivacy();
+    } else {
+      window.location.hash = '#privacy';
+    }
   };
 
   return (
@@ -21,14 +34,21 @@ export const Footer: React.FC = () => {
             <AgLogo size="sm" withText={true} />
           </div>
 
-          {/* Center: Dynamic Copyright */}
-          <div className="text-xs sm:text-sm text-text-secondary font-medium">
-            &copy; {currentYear} Anuj Gupta. All Rights Reserved.
+          {/* Center: Dynamic Copyright & Privacy Policy Page Link */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs sm:text-sm text-text-secondary font-medium">
+            <span>&copy; {currentYear} Anuj Gupta. All Rights Reserved.</span>
+            <span className="hidden sm:inline text-border-subtle" aria-hidden="true">•</span>
+            <button
+              onClick={handlePrivacyClick}
+              className="text-text-muted hover:text-brand-neon transition-colors duration-200 cursor-pointer underline-offset-4 hover:underline focus:outline-none focus:text-brand-neon"
+            >
+              Privacy Policy
+            </button>
           </div>
 
-          {/* Right: Motto, Red line & Back to Top */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
+          {/* Right: Motto & Mouse Scroll Back to Top */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="hidden lg:flex items-center gap-2">
               <span className="text-[11px] sm:text-xs font-display font-extrabold uppercase tracking-widest text-text-muted">
                 BUILD &nbsp;/&nbsp; LEARN &nbsp;/&nbsp; GROW
               </span>
@@ -37,10 +57,17 @@ export const Footer: React.FC = () => {
 
             <button
               onClick={scrollToTop}
-              aria-label="Back to top"
-              className="p-2.5 rounded-full border border-border-subtle bg-bg-card hover:border-brand-neon text-text-secondary hover:text-white hover:bg-brand-neon/10 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-neon group cursor-pointer"
+              aria-label="Scroll back to top"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-full border border-border-subtle bg-bg-card hover:border-brand-neon text-text-secondary hover:text-white hover:bg-brand-neon/10 transition-all duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-neon group cursor-pointer"
             >
-              <ArrowUp className="w-4 h-4 text-brand-neon group-hover:-translate-y-0.5 transition-transform" />
+              {/* Animated Mouse Icon */}
+              <div className="w-3.5 h-5 rounded-full border border-text-muted/70 group-hover:border-brand-neon flex items-start justify-center p-0.5 transition-colors shadow-[0_0_8px_rgba(255,23,68,0)] group-hover:shadow-[0_0_8px_rgba(255,23,68,0.4)]">
+                <div className="w-1 h-1.5 bg-brand-neon rounded-full animate-bounce" />
+              </div>
+              <span className="text-[11px] font-display font-bold uppercase tracking-wider text-text-muted group-hover:text-white transition-colors">
+                Scroll Top
+              </span>
+              <ArrowUp className="w-3.5 h-3.5 text-brand-neon group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>
 
